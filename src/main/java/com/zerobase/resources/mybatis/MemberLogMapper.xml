@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zerobase.fastlms.admin.mapper.MemberLogMapper">
+	
+	<select id="selectListMyHistory" resultType="com.example.lms.admin.dto.MemberLogDto">
+		SELECT ml.*
+		FROM MEMBER_LOG ml
+		where ml.user_id = #{userId}
+		ORDER BY ml.login_dt DESC
+	
+	</select>
+	
+	<select id="selectListCount" resultType="long">
+  			
+	SELECT count(*)
+	FROM MEMBER_LOG
+	where user_id = #{userId}
+	</select>
+</mapper>
